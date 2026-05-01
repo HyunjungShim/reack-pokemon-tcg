@@ -1,0 +1,50 @@
+포켓몬 카드 등 TCG에서 홀로 포일(Holo Foil)은 포켓몬 그림(일러스트) 부분만 반짝이는 일반 홀로그램 카드를 뜻하며, 리버스 홀로 포일(Reverse Holo Foil)은 그림을 제외한 나머지 배경/카드 테두리 부분이 반짝이는 반전된 형태를 뜻
+
+// 뒷배경 
+https://tcg.pokemon.com/assets/img/global/tcg-card-back-2x.jpg
+
+// api
+https://tcgdex.dev/rest/card#200-response
+
+// repo sample
+https://poke-holo.simey.me/
+
+// repo 
+https://github.com/simeydotme/pokemon-cards-css/blob/main/index.html
+
+// pokemon modal
+https://motion.dev/examples/react-pokopia-modal?platform=react
+
+// 로딩 
+https://dribbble.com/shots/3374551-An-animation-for-pokemon
+
+
+// 시리즈 선택 화면
+
+https://dribbble.com/shots/4375903-Nintendo-Switch-UI-Redesign/attachments/995673?mode=media
+
+// 팩 이미지 github
+https://github.com/1niceroli/ptcg-assets
+
+
+// 구성
+처음접속시 
+- 최초 접속시에만 표출 , 웹 설명 페이지 ( 피카츄 이미지 + 말풍선 형식 )
+로딩
+- 로드될동안 로딩화면 / 로드 3초이내시 : 3초 - 로드된시간 더 로딩  / 그외 정상 로드될동안 대기 
+시작화면 ( 시리즈 갤러리 ) 
+- 시리즈 목록 로드 (갤러리 형식 => 스크롤시 슬라이드 )
+- 시리즈 클릭시 세트 페이지로 이동
+세트 화면
+- 각 세트들 360도 회전 가능하게 , 세트 클릭시 세트 줌인 , 팩 까기
+카드화면 
+- 세트 카드들 랜덤 10장 표시
+- 카드 클릭시 다음 카드 표출하는 형식 ( 오른쪽 슬라이드 : 다음 , 왼쪽 : 이전  )
+- 5장 전체 표출 완료시 개봉결과에 전체 결과 표출 , 카드 갤러리 이동
+카드 갤러리
+-해당하는 카드 세트팩에서 몇번째 카드 등록됐는지 표시
+- 상단 탭형식 ( 보유중인 카드 전체보기 ,세트별로 보기 )
+- 하단 카드 목록 
+
+// api 구성 
+시리즈 목록 => 시리즈별 세트들 => 세트별 카드들

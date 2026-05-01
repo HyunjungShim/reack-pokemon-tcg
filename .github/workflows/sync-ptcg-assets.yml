@@ -1,0 +1,53 @@
+# 외부 깃허브 레포(ptcg-assets) 전체를 받아서 이 레포의 public/ptcg-assets/ 에 미러합니다.
+# (.git 은 제외 — 불필요하고 용량만 커짐)
+#
+# 트리거: 수동 실행(workflow_dispatch) + cron 일정(주기적 업데이트)
+#
+# 바꿀 곳:
+# - schedule.cron : 원하는 주기 (UTC)
+# - repository / ref : 다른 업스트림으로 바꿀 때
+
+name: Sync ptcg-assets (full) into public
+
+on:
+  workflow_dispatch:
+  schedule:
+    # 매주 월요일 06:00 UTC
+    - cron: '0 6 * * 1'
+
+permissions:
+  contents: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout this repo
+        uses: actions/checkout@v4
+
+      - name: Checkout upstream (전체, shallow clone)
+        uses: actions/checkout@v4
+        with:
+          repository: 1niceroli/ptcg-assets
+          ref: main
+          path: .upstream-ptcg-assets
+          fetch-depth: 1
+
+      - name: Mirror into public/ptcg-assets (exclude .git)
+        run: |
+          mkdir -p public
+          rm -rf public/ptcg-assets
+          mkdir -p public/ptcg-assets
+          rsync -a --delete --exclude='.git/' .upstream-ptcg-assets/ public/ptcg-assets/
+
+      - name: Commit and push if changed
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add public/ptcg-assets
+          if git diff --staged --quiet; then
+            echo "No changes to commit."
+          else
+            git commit -m "chore: sync ptcg-assets (full mirror)"
+            git push
+          fi
