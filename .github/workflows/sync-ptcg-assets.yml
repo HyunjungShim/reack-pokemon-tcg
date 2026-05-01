@@ -1,18 +1,11 @@
-# 외부 깃허브 레포(ptcg-assets) 전체를 받아서 이 레포의 public/ptcg-assets/ 에 미러합니다.
-# (.git 은 제외 — 불필요하고 용량만 커짐)
-#
-# 트리거: 수동 실행(workflow_dispatch) + cron 일정(주기적 업데이트)
-#
-# 바꿀 곳:
-# - schedule.cron : 원하는 주기 (UTC)
-# - repository / ref : 다른 업스트림으로 바꿀 때
+# Mirror upstream ptcg-assets repo into public/ptcg-assets/ (.git excluded).
+# Triggers: manual (workflow_dispatch) + weekly cron (UTC).
 
 name: Sync ptcg-assets (full) into public
 
 on:
   workflow_dispatch:
   schedule:
-    # 매주 월요일 06:00 UTC
     - cron: '0 6 * * 1'
 
 permissions:
@@ -25,7 +18,7 @@ jobs:
       - name: Checkout this repo
         uses: actions/checkout@v4
 
-      - name: Checkout upstream (전체, shallow clone)
+      - name: Checkout upstream (full shallow clone)
         uses: actions/checkout@v4
         with:
           repository: 1niceroli/ptcg-assets
