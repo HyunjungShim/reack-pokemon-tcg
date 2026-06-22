@@ -179,6 +179,9 @@ Currently included sets are:
 | me2pt5      | en       | Ascended Heroes                    | Mega Evolution         |
 | me3         | en       | Perfect Order                      | Mega Evolution         |
 | me4         | en       | Chaos Rising                       | Mega Evolution         |
+| me5         | en       | Pitch Black                        | Mega Evolution         |
+| me6         | en       | Delta Reign                        | Mega Evolution         |
+| me6pt5      | en       | 30th Celebration                   | Mega Evolution         |
 
 ## Japanese
 
@@ -218,6 +221,9 @@ Currently included sets are:
 | ja_m2a   | ja       | MEGA Dream ex               | Mega Evolution JP   |
 | ja_m3    | ja       | Nihil Zero                  | Mega Evolution JP   |
 | ja_m4    | ja       | Ninja Spinner               | Mega Evolution JP   |
+| ja_m5    | ja       | Abyss Eye                   | Mega Evolution JP   |
+| ja_m6    | ja       | Storm Emeralda              | Mega Evolution JP   |
+| ja_m6a   | ja       | 30th Celebration            | Mega Evolution JP   |
 
 ## Simplified Chinese
 
